@@ -1,0 +1,8 @@
+[
+  { "id": "p1", "name": "Red Rose Bouquet", "category": "Bouquet", "supplier": "Bloom Co.", "buyingPrice": 250, "sellingPrice": 450, "stock": 35, "unit": "pcs", "expiryDate": "2026-06-01", "image": "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=400" },
+  { "id": "p2", "name": "White Lily Bunch", "category": "Bunch", "supplier": "Petal Farms", "buyingPrice": 180, "sellingPrice": 320, "stock": 8, "unit": "pcs", "expiryDate": "2026-06-05", "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400" },
+  { "id": "p3", "name": "Sunflower Single", "category": "Single", "supplier": "Sunshine Florals", "buyingPrice": 30, "sellingPrice": 60, "stock": 120, "unit": "pcs", "expiryDate": "2026-06-10", "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=400" },
+  { "id": "p4", "name": "Orchid Premium", "category": "Premium", "supplier": "Bloom Co.", "buyingPrice": 400, "sellingPrice": 750, "stock": 4, "unit": "pcs", "expiryDate": "2026-06-08", "image": "https://images.unsplash.com/photo-1567200770915-7d24fec06cdd?w=400" },
+  { "id": "p5", "name": "Tulip Mix Bouquet", "category": "Bouquet", "supplier": "Petal Farms", "buyingPrice": 320, "sellingPrice": 580, "stock": 22, "unit": "pcs", "expiryDate": "2026-06-12", "image": "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=400" },
+  { "id": "p6", "name": "Marigold Garland", "category": "Garland", "supplier": "Sunshine Florals", "buyingPrice": 80, "sellingPrice": 150, "stock": 60, "unit": "pcs", "expiryDate": "2026-06-03", "image": "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400" }
+]

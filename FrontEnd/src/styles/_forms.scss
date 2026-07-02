@@ -1,0 +1,101 @@
+@use "variables" as *;
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-muted;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $bg-secondary;
+  color: $text;
+  font-size: 14px;
+  transition: border-color $transition, box-shadow $transition;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
+
+  &--icon {
+    padding-left: 38px;
+  }
+
+  &--sm {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+
+.form-input-wrap {
+  position: relative;
+
+  .form-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+    pointer-events: none;
+  }
+}
+
+.form-error {
+  font-size: 12px;
+  color: $danger;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+
+  &__icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    border: 1px solid $border;
+    border-radius: $radius;
+    background: $bg-secondary;
+    color: $text;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+  }
+}

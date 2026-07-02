@@ -1,0 +1,5 @@
+[
+  { "id": "s1", "name": "Bloom Co.", "company": "Bloom Wholesale Pvt Ltd", "mobile": "9000011111", "email": "sales@bloom.com", "address": "Pune, Maharashtra" },
+  { "id": "s2", "name": "Petal Farms", "company": "Petal Farms LLP", "mobile": "9000022222", "email": "hello@petal.com", "address": "Ooty, Tamil Nadu" },
+  { "id": "s3", "name": "Sunshine Florals", "company": "Sunshine Florals Co", "mobile": "9000033333", "email": "contact@sunshine.com", "address": "Coimbatore" }
+]

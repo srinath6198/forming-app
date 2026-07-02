@@ -1,0 +1,5 @@
+[
+  { "id": "u1", "name": "Super Admin", "email": "super@flora.com", "password": "super123", "role": "Super Admin" },
+  { "id": "u2", "name": "Admin User", "email": "admin@flora.com", "password": "admin123", "role": "Admin" },
+  { "id": "u3", "name": "Billing Staff", "email": "billing@flora.com", "password": "bill123", "role": "Billing User" }
+]

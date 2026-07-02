@@ -1,0 +1,5 @@
+[
+  { "id": "c1", "name": "Priya Sharma", "mobile": "9876543210", "email": "priya@mail.com", "address": "MG Road, Bangalore", "gst": "29ABCDE1234F1Z5" },
+  { "id": "c2", "name": "Rahul Verma", "mobile": "9123456780", "email": "rahul@mail.com", "address": "Park Street, Kolkata", "gst": "" },
+  { "id": "c3", "name": "Anita Desai", "mobile": "9988776655", "email": "anita@mail.com", "address": "Andheri, Mumbai", "gst": "27XYZAB5678G2H1" }
+]

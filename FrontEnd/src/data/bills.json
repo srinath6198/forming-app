@@ -1,0 +1,5 @@
+[
+  { "id": "b1", "invoiceNo": "INV-1001", "date": "2026-05-20", "customer": "Priya Sharma", "items": [], "subtotal": 900, "gstTotal": 162, "discountTotal": 50, "grandTotal": 1012, "payment": "UPI" },
+  { "id": "b2", "invoiceNo": "INV-1002", "date": "2026-05-22", "customer": "Rahul Verma", "items": [], "subtotal": 1500, "gstTotal": 270, "discountTotal": 100, "grandTotal": 1670, "payment": "Card" },
+  { "id": "b3", "invoiceNo": "INV-1003", "date": "2026-05-24", "customer": "Anita Desai", "items": [], "subtotal": 600, "gstTotal": 108, "discountTotal": 0, "grandTotal": 708, "payment": "Cash" }
+]

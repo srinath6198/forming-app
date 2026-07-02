@@ -1,0 +1,25 @@
+.products-list {
+  &__search {
+    margin-bottom: 16px;
+  }
+}
+
+.product-form-page {
+  &__panel {
+    max-width: 720px;
+  }
+
+  .product-form__preview img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #334155;
+  }
+
+  .product-form__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+}
