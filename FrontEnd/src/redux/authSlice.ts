@@ -45,6 +45,19 @@ export const signup = createAsyncThunk(
   }
 );
 
+// Create async thunk for fetching profile
+export const getProfile = createAsyncThunk(
+  "auth/getProfile",
+  async (_, { rejectWithValue }) => {
+    try {
+      const user = await authService.getProfile();
+      return user;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to fetch profile");
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -65,6 +78,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // Login handlers
       .addCase(login.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -97,6 +111,7 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
         state.error = action.payload as string || "Invalid email or password";
       })
+      // Signup handlers
       .addCase(signup.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -106,31 +121,47 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
         state.error = null;
         
-        // For signup, we need to fetch the user data since the register response only returns userId and token
-        // Map backend roles to frontend roles
-        const roleMap: Record<string, "Super Admin" | "Admin" | "Billing User"> = {
-          'ADMIN': 'Super Admin',
-          'USER': 'Billing User',
-        };
-        
-        // Since register response doesn't include full user data, we'll store minimal info
-        // The user data will be fetched via getProfile when needed
-        state.user = {
-          id: action.payload.data.userId,
-          name: "", // Will be populated when profile is fetched
-          email: "", // Will be populated when profile is fetched
-          password: "",
-          role: 'Admin', // Default role
-        };
+        // Store token from signup response
         if (typeof window !== "undefined") {
           localStorage.setItem("flora_token", action.payload.data.token);
-          localStorage.setItem("flora_user", JSON.stringify(state.user));
         }
       })
       .addCase(signup.rejected, (state, action) => {
         state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload as string || "Signup failed";
+      })
+      // GetProfile handlers
+      .addCase(getProfile.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getProfile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = true;
+        state.error = null;
+        
+        // Map backend roles to frontend roles
+        const roleMap: Record<string, "Super Admin" | "Admin" | "Billing User"> = {
+          'ADMIN': 'Super Admin',
+          'USER': 'Billing User',
+        };
+        
+        state.user = {
+          id: action.payload.id,
+          name: action.payload.name,
+          email: action.payload.email,
+          password: "",
+          role: roleMap[action.payload.role] || 'Admin',
+        };
+        if (typeof window !== "undefined") {
+          localStorage.setItem("flora_user", JSON.stringify(state.user));
+        }
+      })
+      .addCase(getProfile.rejected, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = false;
+        state.error = action.payload as string || "Failed to fetch profile";
       });
   },
 });
