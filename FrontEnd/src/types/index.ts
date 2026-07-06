@@ -27,12 +27,25 @@ export interface Product {
 }
 
 export interface Customer {
-  id: string;
-  name: string;
-  mobile: string;
-  email: string;
-  address: string;
-  gst: string;
+  id: number;
+  customer_name: string;
+  email: string | null;
+  phone: string;
+  alternate_phone: string | null;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  pincode: string | null;
+  gst_number: string | null;
+  customer_type: 'retail' | 'wholesale' | 'corporate';
+  credit_limit: number;
+  opening_balance: number;
+  current_balance: number;
+  notes: string | null;
+  is_active: boolean;
+  created_by: number | null;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface Supplier {

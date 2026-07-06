@@ -58,6 +58,19 @@ export const getProfile = createAsyncThunk(
   }
 );
 
+// Create async thunk for updating profile
+export const updateProfile = createAsyncThunk(
+  "auth/updateProfile",
+  async (profileData: { name?: string; email?: string; first_name?: string; last_name?: string; date_of_birth?: string; profile_image?: string }, { rejectWithValue }) => {
+    try {
+      const response = await authService.updateProfile(profileData);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to update profile");
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -162,6 +175,24 @@ const authSlice = createSlice({
         state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload as string || "Failed to fetch profile";
+      })
+      // UpdateProfile handlers
+      .addCase(updateProfile.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = true;
+        state.error = null;
+        state.user = action.payload.data;
+        if (typeof window !== "undefined") {
+          localStorage.setItem("flora_user", JSON.stringify(action.payload.data));
+        }
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string || "Failed to update profile";
       });
   },
 });

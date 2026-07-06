@@ -9,7 +9,7 @@ import Dashboard from "@/pages/Dashboard";
 import Billing from "@/pages/Billing";
 import ProductTable from "@/pages/Products/ProductTable";
 import ProductForm from "@/pages/Products/ProductForm";
-import Customers from "@/pages/Customers";
+import Customers from "@/pages/Customer/Customers";
 import Suppliers from "@/pages/Suppliers";
 import Reports from "@/pages/Reports";
 import Settings from "@/pages/Settings";

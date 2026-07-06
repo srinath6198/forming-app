@@ -6,14 +6,16 @@ interface Column<T> {
   render?: (row: T) => ReactNode;
 }
 
-export function DataTable<T extends { id: string }>({
+export function DataTable<T extends { id: number | string }>({
   columns,
   data,
   actions,
+  loading,
 }: {
   columns: Column<T>[];
   data: T[];
   actions?: (row: T) => ReactNode;
+  loading?: boolean;
 }) {
   return (
     <div className="data-table">
@@ -28,7 +30,13 @@ export function DataTable<T extends { id: string }>({
             </tr>
           </thead>
           <tbody>
-            {data.length === 0 ? (
+            {loading ? (
+              <tr>
+                <td colSpan={columns.length + (actions ? 1 : 0)} className="data-table__empty">
+                  Loading...
+                </td>
+              </tr>
+            ) : data.length === 0 ? (
               <tr>
                 <td colSpan={columns.length + (actions ? 1 : 0)} className="data-table__empty">
                   No records

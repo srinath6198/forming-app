@@ -13,6 +13,15 @@ export interface RegisterRequest {
   role?: string;
 }
 
+export interface RegisterResponse {
+  success: boolean;
+  message: string;
+  data: {
+    userId: string;
+    token: string;
+  };
+}
+
 export interface LoginResponse {
   success: boolean;
   message: string;
@@ -27,13 +36,19 @@ export interface LoginResponse {
   };
 }
 
-export interface RegisterResponse {
+export interface UpdateProfileRequest {
+  name?: string;
+  email?: string;
+  first_name?: string;
+  last_name?: string;
+  date_of_birth?: string;
+  profile_image?: string;
+}
+
+export interface UpdateProfileResponse {
   success: boolean;
   message: string;
-  data: {
-    userId: string;
-    token: string;
-  };
+  data: User;
 }
 
 export const authService = {
@@ -54,5 +69,10 @@ export const authService = {
   async getProfile(): Promise<User> {
     const response = await api.get('/auth/me');
     return response.data.data;
+  },
+
+  async updateProfile(data: UpdateProfileRequest): Promise<UpdateProfileResponse> {
+    const response = await api.put<UpdateProfileResponse>('/profile/update', data);
+    return response.data;
   },
 };
